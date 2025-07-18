@@ -3,6 +3,10 @@
 
 Supporting publicly funded radio stations by matching stations in need with donors
 
+## Screenshots
+
+![Indy Radio Interface](docs/screenshots/frontpagev1screengrab.png)
+
 ## Project Structure
 
 - `/components` - React components
