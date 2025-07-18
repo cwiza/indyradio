@@ -3,6 +3,10 @@
 
 Supporting publicly funded radio stations by matching stations in need with donors
 
+## Design
+
+View the full design in [Figma](https://sweat-rinse-25569166.figma.site/)
+
 ## Screenshots
 
 ![Indy Radio Interface](docs/screenshots/frontpagev1screengrab.png)
