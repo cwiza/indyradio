@@ -6,7 +6,9 @@
 
 A web platform connecting donors with vulnerable publicly funded radio stations facing federal funding challenges.
 
-[View Demo](https://cwiza.github.io/indyradio) · [Report Bug](https://github.com/cwiza/indyradio/issues) · [Request Feature](https://github.com/cwiza/indyradio/issues)
+![Indy Radio Interface](docs/screenshots/frontpagev1screengrab.png)
+
+[View Demo](https://cwiza.github.io/indyradio) · [Figma Design](https://sweat-rinse-25569166.figma.site/) · [Report Bug](https://github.com/cwiza/indyradio/issues) · [Request Feature](https://github.com/cwiza/indyradio/issues)
 
 </div>
 
