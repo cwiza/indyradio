@@ -546,7 +546,7 @@ export default function App() {
               
               <RadioGroup
                 value={userPreferences[questionsData[questionnaireStep].key] || ''}
-                onValueChange={(value) => {
+                onValueChange={(value: string) => {
                   setUserPreferences({
                     ...userPreferences,
                     [questionsData[questionnaireStep].key]: value
@@ -889,7 +889,7 @@ export default function App() {
                   {/* Donation Type */}
                   <div className="mb-6">
                     <Label className="text-base font-semibold mb-3 block">Donation Type</Label>
-                    <Tabs value={donationType} onValueChange={(value) => setDonationType(value as any)}>
+                    <Tabs value={donationType} onValueChange={(value: string) => setDonationType(value as 'one-time' | 'monthly')}>
                       <TabsList className="grid w-full grid-cols-2">
                         <TabsTrigger value="one-time">One-time</TabsTrigger>
                         <TabsTrigger value="monthly">Monthly</TabsTrigger>
