@@ -13,11 +13,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { Search, Menu, Heart, MapPin, Users, Radio, DollarSign, Shield, AlertTriangle, TrendingUp, Star } from 'lucide-react';
 import svgPaths from './imports/svg-y92g1u4lo4';
-import imgCriticalRisk from "figma:asset/688c50e0e7f1d39099d19079e2758744b9d98f41.png";
-import imgHighRisk from "figma:asset/bfcba32dad04c4b4a6fbf4e587003ead762350ad.png";
-import imgModerateRisk from "figma:asset/7a5c63fa21dc83eecdaa7d86fef192ece9861d81.png";
-import imgLowRisk from "figma:asset/2b35f5cfe8248a6ff82bb253000f72d4d1285cd3.png";
-import imgCommunitySupport from "figma:asset/88e0c505779aadfa08349b6208958325280d3966.png";
+
+// Placeholder images - replace with actual assets in public/assets/
+const imgCriticalRisk = "https://via.placeholder.com/400x300/ef4444/ffffff?text=Critical+Risk";
+const imgHighRisk = "https://via.placeholder.com/400x300/f97316/ffffff?text=High+Risk";
+const imgModerateRisk = "https://via.placeholder.com/400x300/eab308/ffffff?text=Moderate+Risk";
+const imgLowRisk = "https://via.placeholder.com/400x300/22c55e/ffffff?text=Low+Risk";
+const imgCommunitySupport = "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Community+Support";
 
 type View = 'home' | 'questionnaire' | 'recommendations' | 'map' | 'donation';
 
@@ -170,7 +172,7 @@ export default function App() {
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
             <Radio className="w-8 h-8 text-red-600" />
-            <span className="text-2xl font-bold text-gray-900">RadioApp</span>
+            <span className="text-2xl font-bold text-gray-900">IndyRadio</span>
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <Button variant="ghost" onClick={() => setCurrentView('home')}>Home</Button>
@@ -220,8 +222,69 @@ export default function App() {
       {/* Map Container */}
       <div className="p-6">
         <div className="relative h-96 bg-gradient-to-b from-blue-50 to-blue-100 rounded-lg overflow-hidden border-2 border-gray-200">
+          {/* US Map Background */}
+          <svg 
+            className="absolute inset-0 w-full h-full" 
+            viewBox="0 0 960 600" 
+            preserveAspectRatio="xMidYMid meet"
+          >
+            {/* Simplified US Map - Major States */}
+            <g className="fill-gray-200 stroke-gray-300" strokeWidth="1">
+              {/* West Coast */}
+              <path d="M 50,100 L 80,80 L 100,120 L 120,140 L 110,200 L 90,220 L 70,200 Z" opacity="0.8" /> {/* WA */}
+              <path d="M 70,200 L 90,220 L 80,280 L 60,300 L 40,280 Z" opacity="0.8" /> {/* OR */}
+              <path d="M 40,280 L 60,300 L 80,340 L 90,420 L 70,450 L 50,430 L 40,380 Z" opacity="0.8" /> {/* CA */}
+              
+              {/* Mountain States */}
+              <path d="M 90,220 L 110,200 L 180,220 L 190,280 L 160,300 L 80,280 Z" opacity="0.8" /> {/* ID/MT */}
+              <path d="M 160,300 L 190,280 L 240,300 L 230,360 L 180,370 L 160,350 Z" opacity="0.8" /> {/* WY */}
+              <path d="M 80,340 L 160,350 L 180,370 L 200,450 L 170,480 L 90,420 Z" opacity="0.8" /> {/* NV/UT */}
+              <path d="M 170,480 L 200,450 L 280,470 L 290,520 L 260,540 L 200,520 Z" opacity="0.8" /> {/* AZ */}
+              
+              {/* Central States */}
+              <path d="M 230,360 L 280,370 L 300,300 L 280,260 L 240,300 Z" opacity="0.8" /> {/* CO */}
+              <path d="M 280,470 L 350,480 L 370,520 L 340,540 L 290,520 Z" opacity="0.8" /> {/* NM/TX North */}
+              <path d="M 340,540 L 370,520 L 450,530 L 470,560 L 420,580 L 350,570 Z" opacity="0.8" /> {/* TX */}
+              
+              {/* Midwest */}
+              <path d="M 300,300 L 400,310 L 420,280 L 380,240 L 340,250 L 280,260 Z" opacity="0.8" /> {/* ND/SD */}
+              <path d="M 340,250 L 420,280 L 430,350 L 400,370 L 300,360 L 280,320 Z" opacity="0.8" /> {/* NE/KS */}
+              <path d="M 400,370 L 430,350 L 480,360 L 490,400 L 450,420 L 400,410 Z" opacity="0.8" /> {/* OK */}
+              
+              <path d="M 420,280 L 480,280 L 500,320 L 490,350 L 430,350 Z" opacity="0.8" /> {/* IA */}
+              <path d="M 430,350 L 490,350 L 500,380 L 490,400 Z" opacity="0.8" /> {/* MO */}
+              <path d="M 450,420 L 490,400 L 530,420 L 540,460 L 510,480 L 470,470 Z" opacity="0.8" /> {/* AR */}
+              
+              {/* Great Lakes */}
+              <path d="M 480,280 L 530,270 L 560,240 L 580,260 L 570,300 L 530,320 L 500,320 Z" opacity="0.8" /> {/* MN/WI */}
+              <path d="M 530,320 L 570,300 L 620,290 L 640,310 L 630,350 L 590,360 L 560,340 Z" opacity="0.8" /> {/* MI */}
+              <path d="M 500,320 L 560,340 L 580,380 L 560,400 L 500,380 Z" opacity="0.8" /> {/* IL/IN */}
+              <path d="M 560,400 L 600,390 L 620,410 L 610,440 L 580,440 L 560,420 Z" opacity="0.8" /> {/* KY */}
+              <path d="M 580,380 L 620,370 L 650,360 L 660,390 L 640,410 L 600,390 Z" opacity="0.8" /> {/* OH */}
+              
+              {/* South */}
+              <path d="M 510,480 L 540,460 L 590,470 L 620,490 L 610,520 L 570,530 L 540,520 Z" opacity="0.8" /> {/* LA/MS */}
+              <path d="M 540,460 L 610,440 L 650,450 L 680,470 L 670,510 L 620,490 L 590,470 Z" opacity="0.8" /> {/* AL */}
+              <path d="M 660,390 L 710,380 L 730,400 L 720,440 L 680,450 L 640,410 Z" opacity="0.8" /> {/* WV/VA */}
+              <path d="M 650,450 L 720,440 L 760,460 L 770,500 L 730,520 L 670,510 Z" opacity="0.8" /> {/* NC/SC */}
+              <path d="M 670,510 L 730,520 L 760,540 L 780,570 L 740,580 L 680,560 L 650,540 Z" opacity="0.8" /> {/* GA */}
+              <path d="M 650,540 L 680,560 L 710,580 L 740,600 L 680,600 L 620,590 L 570,570 L 570,530 L 610,520 Z" opacity="0.8" /> {/* FL */}
+              
+              {/* Northeast */}
+              <path d="M 710,380 L 760,360 L 800,340 L 830,360 L 820,390 L 770,400 L 730,400 Z" opacity="0.8" /> {/* PA/NY */}
+              <path d="M 800,340 L 850,310 L 880,300 L 900,320 L 890,350 L 860,360 L 830,360 Z" opacity="0.8" /> {/* New England */}
+            </g>
+            
+            {/* State borders overlay for more definition */}
+            <g className="fill-none stroke-gray-400" strokeWidth="0.5" opacity="0.6">
+              <line x1="200" y1="200" x2="200" y2="500" /> {/* Vertical divider */}
+              <line x1="400" y1="220" x2="400" y2="480" /> {/* Vertical divider */}
+              <line x1="600" y1="240" x2="600" y2="500" /> {/* Vertical divider */}
+            </g>
+          </svg>
+
           {/* Map Legend */}
-          <div className="absolute top-4 left-4 bg-white p-4 rounded-lg shadow-md z-10 border">
+          <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-md z-10 border">
             <h4 className="font-semibold text-gray-900 mb-3">Risk Levels</h4>
             {[
               { level: 'critical', color: 'bg-red-500', label: 'Critical Risk', count: stations.filter(s => s.riskLevel === 'critical').length },
@@ -239,7 +302,7 @@ export default function App() {
           </div>
 
           {/* Map Statistics */}
-          <div className="absolute top-4 right-4 bg-white p-4 rounded-lg shadow-md z-10 border">
+          <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-md z-10 border">
             <h4 className="font-semibold text-gray-900 mb-3">Live Statistics</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between gap-4">
@@ -279,11 +342,6 @@ export default function App() {
               title={`${station.name} - ${station.location} (${station.riskLevel} risk)`}
             />
           ))}
-
-          {/* Map Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="w-full h-full bg-gradient-to-br from-gray-200 via-transparent to-gray-300"></div>
-          </div>
         </div>
         
         {/* Quick Station Preview */}
@@ -650,8 +708,69 @@ export default function App() {
         {/* Map Container */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
           <div className="relative h-96 bg-gradient-to-b from-blue-50 to-blue-100 rounded-lg overflow-hidden">
+            {/* US Map Background */}
+            <svg 
+              className="absolute inset-0 w-full h-full" 
+              viewBox="0 0 960 600" 
+              preserveAspectRatio="xMidYMid meet"
+            >
+              {/* Simplified US Map - Major States */}
+              <g className="fill-gray-200 stroke-gray-300" strokeWidth="1">
+                {/* West Coast */}
+                <path d="M 50,100 L 80,80 L 100,120 L 120,140 L 110,200 L 90,220 L 70,200 Z" opacity="0.8" /> {/* WA */}
+                <path d="M 70,200 L 90,220 L 80,280 L 60,300 L 40,280 Z" opacity="0.8" /> {/* OR */}
+                <path d="M 40,280 L 60,300 L 80,340 L 90,420 L 70,450 L 50,430 L 40,380 Z" opacity="0.8" /> {/* CA */}
+                
+                {/* Mountain States */}
+                <path d="M 90,220 L 110,200 L 180,220 L 190,280 L 160,300 L 80,280 Z" opacity="0.8" /> {/* ID/MT */}
+                <path d="M 160,300 L 190,280 L 240,300 L 230,360 L 180,370 L 160,350 Z" opacity="0.8" /> {/* WY */}
+                <path d="M 80,340 L 160,350 L 180,370 L 200,450 L 170,480 L 90,420 Z" opacity="0.8" /> {/* NV/UT */}
+                <path d="M 170,480 L 200,450 L 280,470 L 290,520 L 260,540 L 200,520 Z" opacity="0.8" /> {/* AZ */}
+                
+                {/* Central States */}
+                <path d="M 230,360 L 280,370 L 300,300 L 280,260 L 240,300 Z" opacity="0.8" /> {/* CO */}
+                <path d="M 280,470 L 350,480 L 370,520 L 340,540 L 290,520 Z" opacity="0.8" /> {/* NM/TX North */}
+                <path d="M 340,540 L 370,520 L 450,530 L 470,560 L 420,580 L 350,570 Z" opacity="0.8" /> {/* TX */}
+                
+                {/* Midwest */}
+                <path d="M 300,300 L 400,310 L 420,280 L 380,240 L 340,250 L 280,260 Z" opacity="0.8" /> {/* ND/SD */}
+                <path d="M 340,250 L 420,280 L 430,350 L 400,370 L 300,360 L 280,320 Z" opacity="0.8" /> {/* NE/KS */}
+                <path d="M 400,370 L 430,350 L 480,360 L 490,400 L 450,420 L 400,410 Z" opacity="0.8" /> {/* OK */}
+                
+                <path d="M 420,280 L 480,280 L 500,320 L 490,350 L 430,350 Z" opacity="0.8" /> {/* IA */}
+                <path d="M 430,350 L 490,350 L 500,380 L 490,400 Z" opacity="0.8" /> {/* MO */}
+                <path d="M 450,420 L 490,400 L 530,420 L 540,460 L 510,480 L 470,470 Z" opacity="0.8" /> {/* AR */}
+                
+                {/* Great Lakes */}
+                <path d="M 480,280 L 530,270 L 560,240 L 580,260 L 570,300 L 530,320 L 500,320 Z" opacity="0.8" /> {/* MN/WI */}
+                <path d="M 530,320 L 570,300 L 620,290 L 640,310 L 630,350 L 590,360 L 560,340 Z" opacity="0.8" /> {/* MI */}
+                <path d="M 500,320 L 560,340 L 580,380 L 560,400 L 500,380 Z" opacity="0.8" /> {/* IL/IN */}
+                <path d="M 560,400 L 600,390 L 620,410 L 610,440 L 580,440 L 560,420 Z" opacity="0.8" /> {/* KY */}
+                <path d="M 580,380 L 620,370 L 650,360 L 660,390 L 640,410 L 600,390 Z" opacity="0.8" /> {/* OH */}
+                
+                {/* South */}
+                <path d="M 510,480 L 540,460 L 590,470 L 620,490 L 610,520 L 570,530 L 540,520 Z" opacity="0.8" /> {/* LA/MS */}
+                <path d="M 540,460 L 610,440 L 650,450 L 680,470 L 670,510 L 620,490 L 590,470 Z" opacity="0.8" /> {/* AL */}
+                <path d="M 660,390 L 710,380 L 730,400 L 720,440 L 680,450 L 640,410 Z" opacity="0.8" /> {/* WV/VA */}
+                <path d="M 650,450 L 720,440 L 760,460 L 770,500 L 730,520 L 670,510 Z" opacity="0.8" /> {/* NC/SC */}
+                <path d="M 670,510 L 730,520 L 760,540 L 780,570 L 740,580 L 680,560 L 650,540 Z" opacity="0.8" /> {/* GA */}
+                <path d="M 650,540 L 680,560 L 710,580 L 740,600 L 680,600 L 620,590 L 570,570 L 570,530 L 610,520 Z" opacity="0.8" /> {/* FL */}
+                
+                {/* Northeast */}
+                <path d="M 710,380 L 760,360 L 800,340 L 830,360 L 820,390 L 770,400 L 730,400 Z" opacity="0.8" /> {/* PA/NY */}
+                <path d="M 800,340 L 850,310 L 880,300 L 900,320 L 890,350 L 860,360 L 830,360 Z" opacity="0.8" /> {/* New England */}
+              </g>
+              
+              {/* State borders overlay for more definition */}
+              <g className="fill-none stroke-gray-400" strokeWidth="0.5" opacity="0.6">
+                <line x1="200" y1="200" x2="200" y2="500" /> {/* Vertical divider */}
+                <line x1="400" y1="220" x2="400" y2="480" /> {/* Vertical divider */}
+                <line x1="600" y1="240" x2="600" y2="500" /> {/* Vertical divider */}
+              </g>
+            </svg>
+
             {/* Map Legend */}
-            <div className="absolute top-4 left-4 bg-white p-4 rounded-lg shadow-md z-10">
+            <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-md z-10">
               <h4 className="font-semibold text-gray-900 mb-2">Risk Levels</h4>
               {[
                 { level: 'critical', color: 'bg-red-500', label: 'Critical Risk (60%+ federal funding)' },
@@ -666,7 +785,7 @@ export default function App() {
             </div>
 
             {/* Map Statistics */}
-            <div className="absolute top-4 right-4 bg-white p-4 rounded-lg shadow-md z-10">
+            <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-md z-10">
               <h4 className="font-semibold text-gray-900 mb-2">Statistics</h4>
               <div className="space-y-1 text-sm">
                 <div className="flex justify-between">
@@ -698,7 +817,7 @@ export default function App() {
             {getFilteredStations().map((station) => (
               <div
                 key={station.id}
-                className={`absolute w-4 h-4 rounded-full cursor-pointer transition-transform hover:scale-150 z-20 ${getRiskColor(station.riskLevel)}`}
+                className={`absolute w-5 h-5 rounded-full cursor-pointer transition-all duration-200 hover:scale-150 z-20 ${getRiskColor(station.riskLevel)} border-2 border-white shadow-lg`}
                 style={{ 
                   left: `${station.coordinates.x}%`, 
                   top: `${station.coordinates.y}%`,
@@ -1055,10 +1174,10 @@ export default function App() {
           <div className="flex items-center justify-between pt-8 border-t border-gray-200 mt-8">
             <div className="flex items-center gap-2">
               <Radio className="w-6 h-6 text-red-600" />
-              <span className="font-bold text-gray-900">RadioApp</span>
+              <span className="font-bold text-gray-900">IndyRadio</span>
             </div>
             <div className="text-sm text-gray-600">
-              © 2024 RadioApp. All rights reserved.
+              © 2024 IndyRadio. All rights reserved.
             </div>
           </div>
         </div>
