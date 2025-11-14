@@ -30,6 +30,13 @@ jobs:
         run: npm run build
         env:
           CI: false
+      
+      - name: Verify build output
+        run: |
+          echo "Build directory contents:"
+          ls -la build/ || echo "Build directory does not exist!"
+          echo "Build directory size:"
+          du -sh build/ || echo "Cannot measure build directory"
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
